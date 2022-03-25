@@ -3,14 +3,17 @@ public class CSVExportTest{
     [Fact]
     public void Test1(){
         //Arrange
-        List<string> testlist = new List<string>(){"Abhishek Singh,18404,Wisteli", "Abhinav Singh,18401,M.Tech", "Devansh Mishra,18422,TCS"};
+        string clientpath = "D:\\ClientFile.txt";
+        string row_seperator = "|";
+        string column_seperator = ";";
+        string csv_seperator = ",";
 
         //Act
-        CSVExport.Main(testlist);
-        string path = "D:\\CSVExportOutput";        
+        CSVExport.Main(clientpath,column_seperator, row_seperator,csv_seperator);
+        string path = "D:\\CSVExportOutput.txt";        
 
         //Assert
-        Assert.Equal(File.ReadAllLines(path), File.ReadAllLines("D:\\testit.csv"));
+        Assert.Equal(File.ReadAllLines("D:\\TestFile.csv"), File.ReadAllLines(path));
 
     }
 }
